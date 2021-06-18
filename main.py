@@ -1,20 +1,61 @@
-from math import pi
+from math import pi, sqrt
+import matplotlib.pyplot as plt
+
+
+def draw(title):
+    # x axis values
+    x = [1, 2, 3]
+    # corresponding y axis values
+    y = [2, 4, 1]
+
+    # plotting the points
+    plt.plot(x, y)
+
+    # naming the x axis
+    plt.xlabel('oś x')
+    # naming the y axis
+    plt.ylabel('oś y')
+
+    # giving a title to my graph
+    plt.title(title)
+
+    # function to show the plot
+    plt.show()
 
 
 def triangle():
-    print("\nPodaj dane do obliczenia POLA TRÓJKĄTA")
-    b = int(input("Długość podstawy : "))
-    h = int(input("Wysokość : "))
+    # print("\nPodaj dane do obliczenia POLA TRÓJKĄTA")
+    # a1 = int(input("Długość podstawy : "))
+    # h = int(input("Wysokość : "))
 
-    area = 0.5 * b * h
-    print("Pole trójkąta to : ", area)
+    plt.xlabel('oś x')
+    plt.ylabel('oś y')
+    plt.title("TRÓJKĄT")
 
-    print("Podaj dane do obliczenia OBWODU TRÓJKĄTA")
-    a = int(input("Bok 1 : "))
-    b = int(input("Bok 2 : "))
-    c = int(input("Bok 3 : "))
+    print("Podaj współrzędne TRÓJKĄTA")
+    a = (input("a(x,y) : ").split(","))
+    b = (input("b(x,y) : ").split(","))
+    c = (input("c(x,y) : ").split(","))
 
-    perimeter = a + b + c
+    x = [int(a[0]), int(b[0]), int(c[0]), int(a[0])]
+    y = [int(a[1]), int(b[1]), int(c[1]), int(a[1])]
+    print(x)
+    print(y)
+
+    plt.plot(x, y)
+    plt.show()
+
+    ab = sqrt((x[1] - x[0])**2 + (y[1] - y[0])**2)
+    print(ab)
+    bc = sqrt((x[2] - x[1])**2 + (y[2] - y[1])**2)
+    print(bc)
+    ca = sqrt((x[3] - x[2])**2 + (y[3] - y[2])**2)
+    print(ca)
+
+    # area = 0.5 * a1 * h
+    # print("Pole trójkąta to : ", area)
+
+    perimeter = ab + bc + ca
     print("Obwód trójkąta to : ", perimeter)
 
 
@@ -80,6 +121,7 @@ def menu():
             menu()
         elif action.lower() == "p".lower():
             rectangle()
+            test()
             menu()
         elif action.lower() == "kw".lower():
             square()
