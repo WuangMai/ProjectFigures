@@ -2,27 +2,6 @@ from math import pi, sqrt
 import matplotlib.pyplot as plt
 
 
-def draw(title):
-    # x axis values
-    x = [1, 2, 3]
-    # corresponding y axis values
-    y = [2, 4, 1]
-
-    # plotting the points
-    plt.plot(x, y)
-
-    # naming the x axis
-    plt.xlabel('oś x')
-    # naming the y axis
-    plt.ylabel('oś y')
-
-    # giving a title to my graph
-    plt.title(title)
-
-    # function to show the plot
-    plt.show()
-
-
 def triangle():
     plt.xlabel('oś x')
     plt.ylabel('oś y')
@@ -35,17 +14,12 @@ def triangle():
 
     x = [int(a[0]), int(b[0]), int(c[0]), int(a[0])]
     y = [int(a[1]), int(b[1]), int(c[1]), int(a[1])]
-    # print(x)
-    # print(y)
 
     plt.plot(x, y)
 
     ab = sqrt((x[1] - x[0]) ** 2 + (y[1] - y[0]) ** 2)
-    # print(ab)
     bc = sqrt((x[2] - x[1]) ** 2 + (y[2] - y[1]) ** 2)
-    # print(bc)
     ca = sqrt((x[3] - x[2]) ** 2 + (y[3] - y[2]) ** 2)
-    # print(ca)
 
     perimeter = ab + bc + ca
     print("Obwód trójkąta to : ", perimeter)
@@ -61,7 +35,7 @@ def rectangle():
     plt.ylabel('oś y')
     plt.title("PROSTOKĄT")
 
-    print("\nPodaj współrzędne PROSTOKĄTA")
+    print("\nPodaj współrzędne dwóch boków PROSTOKĄTA")
     a = (input("a(x,y) : ").split(","))
     b = (input("b(x,y) : ").split(","))
     c = (input("c(x,y) : ").split(","))
@@ -86,6 +60,7 @@ def square():
     plt.ylabel('oś y')
     plt.title("KWADRAT")
 
+    print("\nPodaj współrzędne boku KWADRATU")
     a = (input("a(x,y) : ").split(","))
     b = (input("b(x,y) : ").split(","))
     ab = sqrt((int(b[0]) - int(a[0])) ** 2 + (int(b[1]) - int(a[1])) ** 2)
@@ -93,24 +68,35 @@ def square():
 
     x = [int(a[0]), int(b[0]), int(b[1]), int(c[0]), int(a[0])]
     y = [int(a[1]), int(b[1]), int(c[1]), int(a[1]), int(a[0])]
-    print(x)
-    print(y)
 
     plt.plot(x, y)
 
-    # area = a ** 2
-    # print("Pole kwadratu to : ", area)
-    # perimeter = 4 * a
-    # print("Obwód kwadratu to : ", perimeter)
+    area = ab ** 2
+    print("Pole kwadratu to : ", area)
+    perimeter = 4 * ab
+    print("Obwód kwadratu to : ", perimeter)
 
     plt.show()
 
+
 def circle():
-    r = float(input("\nPodaj promień koła : "))
+    plt.xlabel('oś x')
+    plt.ylabel('oś y')
+    plt.title("KOŁO")
+    figure, axes = plt.subplots()
+
+    r = int(input("\nPodaj promień koła : "))
+    center = (input("Podaj środek koła (x,y): ").split(","))
+
+    circ = plt.Circle((int(center[0]), int(center[1])), r)
+    axes.autoscale()
+    axes.add_patch(circ)
+
     area = pi * r ** 2
     print("Pole koła to : %.2f" % area)
     circumference = 2 * pi * r
     print("Obwód koła to : %.2f" % circumference)
+    plt.show()
 
 
 def trapezoid():
