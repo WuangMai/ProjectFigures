@@ -29,25 +29,24 @@ def triangle():
     plt.ylabel('oś y')
     plt.title("TRÓJKĄT")
 
-    print("Podaj współrzędne TRÓJKĄTA")
+    print("\nPodaj współrzędne TRÓJKĄTA")
     a = (input("a(x,y) : ").split(","))
     b = (input("b(x,y) : ").split(","))
     c = (input("c(x,y) : ").split(","))
 
     x = [int(a[0]), int(b[0]), int(c[0]), int(a[0])]
     y = [int(a[1]), int(b[1]), int(c[1]), int(a[1])]
-    print(x)
-    print(y)
+    # print(x)
+    # print(y)
 
     plt.plot(x, y)
-    plt.show()
 
     ab = sqrt((x[1] - x[0]) ** 2 + (y[1] - y[0]) ** 2)
-    print(ab)
+    # print(ab)
     bc = sqrt((x[2] - x[1]) ** 2 + (y[2] - y[1]) ** 2)
-    print(bc)
+    # print(bc)
     ca = sqrt((x[3] - x[2]) ** 2 + (y[3] - y[2]) ** 2)
-    print(ca)
+    # print(ca)
 
     perimeter = ab + bc + ca
     print("Obwód trójkąta to : ", perimeter)
@@ -55,16 +54,33 @@ def triangle():
     half_perimeter = perimeter / 2
     area = sqrt(half_perimeter * (half_perimeter - ab) * (half_perimeter - bc) * (half_perimeter - ca))
     print("Pole trójkąta to : ", area)
+    plt.show()
 
 
 def rectangle():
-    a = int(input("\nBok a : "))
-    b = int(input("Bok b : "))
 
-    area = a * b
+    plt.xlabel('oś x')
+    plt.ylabel('oś y')
+    plt.title("PROSTOKĄT")
+
+    print("\nPodaj współrzędne PROSTOKĄTA")
+    a = (input("a(x,y) : ").split(","))
+    b = (input("b(x,y) : ").split(","))
+    c = (input("c(x,y) : ").split(","))
+
+    x = [int(a[0]), int(b[0]), int(c[0]), int(c[0]), int(a[0])]
+    y = [int(a[1]), int(b[1]), int(c[1]), int(a[1]), int(a[1])]
+
+    plt.plot(x, y)
+
+    ab = sqrt((x[1] - x[0]) ** 2 + (y[1] - y[0]) ** 2)
+    bc = sqrt((x[2] - x[1]) ** 2 + (y[2] - y[1]) ** 2)
+
+    area = ab * bc
     print("Pole prostokąta to : ", area)
-    perimeter = 2 * a + 2 * b
+    perimeter = 2 * ab + 2 * bc
     print("Obwód prostokąta to : ", perimeter)
+    plt.show()
 
 
 def square():
