@@ -24,9 +24,6 @@ def draw(title):
 
 
 def triangle():
-    # print("\nPodaj dane do obliczenia POLA TRÓJKĄTA")
-    # a1 = int(input("Długość podstawy : "))
-    # h = int(input("Wysokość : "))
 
     plt.xlabel('oś x')
     plt.ylabel('oś y')
@@ -45,18 +42,19 @@ def triangle():
     plt.plot(x, y)
     plt.show()
 
-    ab = sqrt((x[1] - x[0])**2 + (y[1] - y[0])**2)
+    ab = sqrt((x[1] - x[0]) ** 2 + (y[1] - y[0]) ** 2)
     print(ab)
-    bc = sqrt((x[2] - x[1])**2 + (y[2] - y[1])**2)
+    bc = sqrt((x[2] - x[1]) ** 2 + (y[2] - y[1]) ** 2)
     print(bc)
-    ca = sqrt((x[3] - x[2])**2 + (y[3] - y[2])**2)
+    ca = sqrt((x[3] - x[2]) ** 2 + (y[3] - y[2]) ** 2)
     print(ca)
-
-    # area = 0.5 * a1 * h
-    # print("Pole trójkąta to : ", area)
 
     perimeter = ab + bc + ca
     print("Obwód trójkąta to : ", perimeter)
+
+    half_perimeter = perimeter / 2
+    area = sqrt(half_perimeter * (half_perimeter - ab) * (half_perimeter - bc) * (half_perimeter - ca))
+    print("Pole trójkąta to : ", area)
 
 
 def rectangle():
@@ -121,7 +119,6 @@ def menu():
             menu()
         elif action.lower() == "p".lower():
             rectangle()
-            test()
             menu()
         elif action.lower() == "kw".lower():
             square()
