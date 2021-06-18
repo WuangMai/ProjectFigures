@@ -24,7 +24,6 @@ def draw(title):
 
 
 def triangle():
-
     plt.xlabel('oś x')
     plt.ylabel('oś y')
     plt.title("TRÓJKĄT")
@@ -58,7 +57,6 @@ def triangle():
 
 
 def rectangle():
-
     plt.xlabel('oś x')
     plt.ylabel('oś y')
     plt.title("PROSTOKĄT")
@@ -84,12 +82,28 @@ def rectangle():
 
 
 def square():
-    a = int(input("\nBok : "))
-    area = a ** 2
-    print("Pole kwadratu to : ", area)
-    perimeter = 4 * a
-    print("Obwód kwadratu to : ", perimeter)
+    plt.xlabel('oś x')
+    plt.ylabel('oś y')
+    plt.title("KWADRAT")
 
+    a = (input("a(x,y) : ").split(","))
+    b = (input("b(x,y) : ").split(","))
+    ab = sqrt((int(b[0]) - int(a[0])) ** 2 + (int(b[1]) - int(a[1])) ** 2)
+    c = [int(a[0]) + ab, int(b[1])]
+
+    x = [int(a[0]), int(b[0]), int(b[1]), int(c[0]), int(a[0])]
+    y = [int(a[1]), int(b[1]), int(c[1]), int(a[1]), int(a[0])]
+    print(x)
+    print(y)
+
+    plt.plot(x, y)
+
+    # area = a ** 2
+    # print("Pole kwadratu to : ", area)
+    # perimeter = 4 * a
+    # print("Obwód kwadratu to : ", perimeter)
+
+    plt.show()
 
 def circle():
     r = float(input("\nPodaj promień koła : "))
